@@ -10,7 +10,8 @@
         http://www.springframework.org/schema/context/spring-context.xsd  
         http://www.springframework.org/schema/mvc  
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">  
-<context:component-scan base-package="com.srikanth"></context:component-scan>    
+<context:component-scan base-package="com.srikanth.Controller , com.srikanth.Dao.Impl , com.srikanth.model , com.srikanth.Service"></context:component-scan>  
+<context:annotation-config base-package = "com.srikanth"></context:annotation-config>  
     
 <!-- <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">    
 <property name="prefix" value="/WEB-INF/jsp/"></property>    
@@ -24,13 +25,17 @@
 <property name="password" value="srikanth"></property>    
 </bean>    
     
-<bean id="jt" class="org.springframework.jdbc.core.JdbcTemplate">    
+<bean id="template" class="org.springframework.jdbc.core.JdbcTemplate">    
 <property name="dataSource" ref="ds"></property>    
-</bean>    
+</bean>   
+
+<bean id="service" class="com.srikanth.Service.Impl.StudentServiceImplimentation">    
+</bean>
 
 <bean id="dao" class="com.srikanth.Dao.Impl.StudentDaoImplimentation">    
-<property name="template" ref="jt"></property>    
-</bean>    
+</bean>   
+
+   
 
 
 </beans>

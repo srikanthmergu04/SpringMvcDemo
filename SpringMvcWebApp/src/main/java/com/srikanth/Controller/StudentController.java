@@ -1,6 +1,7 @@
 package com.srikanth.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -15,10 +16,15 @@ import com.srikanth.model.Student;
 @Controller
 public class StudentController {
 	
+	//@Autowired
+	//JdbcTemplate template;
 	
 	
+	@Autowired
+	StudentServiceImplimentation service ; // = new StudentServiceImplimentation();
 	
-	StudentServiceImplimentation service = new StudentServiceImplimentation();
+	@Autowired
+	StudentDaoImplimentation dao;
 	
 	
 	@RequestMapping("/RegisterStudent")
@@ -26,7 +32,9 @@ public class StudentController {
 	{
 		//System.out.println("Hello this is StudentController");
 		m.addAttribute("student", new Student());
-		
+		//System.out.println("JdbcTemplate = "+template);
+		System.out.println("service = "+service);
+		System.out.println("dao = "+dao);
 		return "registerStudent.jsp";
 		
 	}

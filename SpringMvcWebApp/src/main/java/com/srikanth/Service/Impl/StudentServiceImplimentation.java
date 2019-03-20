@@ -8,8 +8,8 @@ import com.srikanth.Dao.Impl.StudentDaoImplimentation;
 import com.srikanth.Service.StudentService;
 import com.srikanth.model.Student;
 
-
-public class StudentServiceImplimentation implements StudentService {
+@Component
+public class StudentServiceImplimentation{
 	
 	
 	StudentDaoImplimentation dao = new StudentDaoImplimentation();
